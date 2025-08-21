@@ -1,16 +1,4 @@
-// const url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc';
-// const options = {
-//   method: 'GET',
-//   headers: {
-//     accept: 'application/json',
-//     Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJkZDZkYTAwMmZlOTY1OGNkODRjZjBhMWM0YmI4YTFhNiIsIm5iZiI6MTc1NDU3NDYyMC41MDQsInN1YiI6IjY4OTRhZjFjOWM5NzU2NDUzOWEzMmM3MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.oZ4JQVFYZ1eRVLjoBfmZYfuWqCNFROvBXuI8_qTpy70'
-//   }
-// };
 
-// fetch(url, options)
-//   .then(res => res.json())
-//   .then(json => console.log(json))
-//   .catch(err => console.error(err));
 
 export const TMDB_CONFIG = {
   BASE_URL: "https://api.themoviedb.org/3",

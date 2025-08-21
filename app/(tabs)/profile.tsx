@@ -1,15 +1,45 @@
-import { View, Text, Image } from 'react-native'
-import React from 'react'
-import { icons } from '@/constants/icons'
+import { images } from '@/constants/images';
+import { useUser } from '@/contexts/UserContext';
+import { useRouter } from 'expo-router';
+import React, { useEffect, useState } from 'react';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
+import Login from '@/app/login'
 
 const Profile = () => {
+
+  const user = useUser();
+  const router = useRouter()
+
+  const [isloggedIn,setIsloggedIn] = useState(false)
+
+  useEffect(() => {
+    if (!user?.current) {
+
+      setIsloggedIn(false)
+    }
+    else{
+      setIsloggedIn(true);
+    }
+  },[user])
+
+
+
   return (
-    <View className='bg-primary flex-1 px-10'>
-      <View className='flex justify-center items-center flex-1 flex-col gap-5 '>
-        <Image source={icons.person}  className='size-10' tintColor="#fff"/>
-        <Text className='text-gray-500 text-base'>Profile</Text>
+    !isloggedIn ? (<Login />) : (
+      <View>
+        <View className='w-full h-[100%]'>
+          <View className=" bg-primary ">
+            <Image source={images.bg} className="absolute w-full z-0" />
+            <View className='flex justify-center h-[100%] w-full items-center'>
+              <TouchableOpacity onPress={() => user?.logout()} className='bg-gray-700 w-[80%] h-[50px] rounded-xl mt-8 justify-center items-center' >
+                <Text className='text-white text-lg' >Logout</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </View>
       </View>
-    </View>
+
+    )
   )
 }
 

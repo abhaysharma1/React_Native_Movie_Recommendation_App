@@ -38,6 +38,13 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "4a6821fb-cfab-4360-9f03-0e65c6547ecd"
+      }
+    },
+    "owner": "abhaysharma"
   }
 }
