@@ -3,10 +3,13 @@ import SearchBar from "@/components/SearchBar";
 import TrendingCard from "@/components/TrendingCard";
 import { icons } from "@/constants/icons";
 import { images } from "@/constants/images";
+import { useMovies } from '@/contexts/SavedMovieContext';
+import { useUser } from "@/contexts/UserContext";
 import { fetchMovies } from "@/services/api";
 import { getTrendingMovies } from "@/services/appwrite";
 import useFetch from "@/services/useFetch";
 import { useRouter } from "expo-router";
+import { useEffect } from "react";
 import {
   ActivityIndicator,
   FlatList,
@@ -16,8 +19,18 @@ import {
   View,
 } from "react-native";
 
+
 export default function Index() {
-  const router = useRouter();
+    const user = useUser();
+    const router = useRouter()
+    const savedMovies = useMovies();
+
+    useEffect(() => {
+      if (user?.current) {
+        savedMovies.init()
+      }
+      
+    },[user])
 
   const {
     data: trendingMovies,

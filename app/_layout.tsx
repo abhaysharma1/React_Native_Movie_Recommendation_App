@@ -10,7 +10,7 @@ export default function RootLayout() {
   return (
     <>
       <UserProvider>
-        {/* <MoviesProvider> */}
+        <MoviesProvider>
           <StatusBar hidden={true} />
           <Stack >
             <Stack.Screen
@@ -27,7 +27,7 @@ export default function RootLayout() {
               options={{ headerShown: false }}
             />
           </ Stack>
-        {/* </MoviesProvider> */}
+        </MoviesProvider>
       </UserProvider>
     </>);
 }

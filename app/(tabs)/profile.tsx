@@ -5,22 +5,23 @@ import React, { useEffect, useState } from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 import Login from '@/app/login'
 
+
 const Profile = () => {
 
   const user = useUser();
-  const router = useRouter()
 
   const [isloggedIn,setIsloggedIn] = useState(false)
 
   useEffect(() => {
-    if (!user?.current) {
-
-      setIsloggedIn(false)
+    if (user?.current) {
+      setIsloggedIn(true)
     }
     else{
-      setIsloggedIn(true);
+      setIsloggedIn(false);
     }
   },[user])
+
+
 
 
 
