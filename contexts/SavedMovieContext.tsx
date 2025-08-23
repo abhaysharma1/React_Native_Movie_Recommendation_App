@@ -28,6 +28,7 @@ interface MoviesContextType {
   remove: (id: string) => Promise<void>;
   init: () => Promise<void>;
   getSavedMovieFromId: (movieId: string) => Promise<savedMovie[] | undefined>
+  getSavedMovies: () => Promise<savedMovie[] | undefined>
 }
 
 /**
@@ -105,6 +106,21 @@ export function MoviesProvider({ children }: MoviesProviderProps) {
     }
   }
 
+  // get Saved Movies From Database
+    async function getSavedMovies() {
+    try {
+      const response = await databases.listDocuments<savedMovie>(
+        MOVIES_DATABASE_ID,
+        MOVIES_COLLECTION_ID,
+        [Query.orderDesc("$createdAt"), Query.limit(20)]
+      );
+      return response.documents
+    } catch (err) {
+      console.error("Error fetching movies:", err);
+      toast("Error fetching movies");
+    }
+  }
+
 
 
 
@@ -127,7 +143,7 @@ export function MoviesProvider({ children }: MoviesProviderProps) {
 
 
   return (
-    <MoviesContext.Provider value={{ current: movies, add, remove, init, getSavedMovieFromId }}>
+    <MoviesContext.Provider value={{ current: movies, add, remove, init, getSavedMovieFromId,getSavedMovies }}>
       {children}
     </MoviesContext.Provider>
   );

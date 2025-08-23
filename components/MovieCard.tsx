@@ -9,7 +9,8 @@ const MovieCard = ({
   title,
   vote_average,
   release_date,
-}: Movie) => {
+  genre_ids = [],
+}: MovieDetails) => {
   return (
     <Link href={`/movies/${id}`} asChild>
       <TouchableOpacity className="w-[30%]">
