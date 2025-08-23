@@ -39,11 +39,11 @@ const Saved = () => {
 
 
   return (
-    <View className='bg-primary flex-1 px-6'>
+    <View className='bg-primary flex-1 '>
       <Image source={images.bg} className="absolute w-full z-0" />
       {user?.current ?
         (<>
-          <Text className='text-4xl text-white mt-[25%]'>Saved Movies</Text>
+          <Text className='text-4xl text-white mt-[25%] px-6'>Saved Movies</Text>
           <FlatList
             data={savedMovies}
             renderItem={({ item }) => <MovieCard {...item} />}
@@ -55,10 +55,10 @@ const Saved = () => {
               paddingRight: 5,
               marginBottom: 10,
             }}
-            className="mt-10 pb-32"
+            className="mt-10 pb-32 px-6"
           />
         </>) :
-        (<View className='w-full h-[70%] justify-center items-center'>
+        (<View className='w-full h-[70%] justify-center items-center '>
           <Text className='text-3xl text-white'>Login to See Saved Movies</Text>
         </View>)
       }
