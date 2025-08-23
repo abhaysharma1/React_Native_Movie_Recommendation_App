@@ -16,6 +16,9 @@
         "foregroundImage": "./assets/images/logo.png",
         "backgroundColor": "#ffffff"
       },
+      "permissions": [
+        "INTERNET"
+      ],
       "edgeToEdgeEnabled": true,
       "package": "com.anonymous.Movie_Recommendation_App"
     },
