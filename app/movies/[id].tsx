@@ -52,7 +52,9 @@ const MovieDetails = () => {
   }
 
   useEffect(() => {
-    isSaved()
+    if(user?.current){
+      isSaved()
+    }
   }, [])
 
   const saveMovie = async () => {
@@ -94,7 +96,7 @@ const MovieDetails = () => {
       <View className='bg-primary flex-1'>
         <ScrollView contentContainerStyle={{ paddingBottom: 80 }} >
           <View>
-            <Image source={{ uri: `http://image.tmdb.org/t/p/w500${movie?.poster_path}` }} className='w-full h-[550px]' resizeMode='stretch' />
+            <Image source={{ uri: `https://image.tmdb.org/t/p/w500${movie?.poster_path}` }} className='w-full h-[550px]' resizeMode='stretch' />
           </View>
 
           <View className='flex-col items-start justify-center mt-5 px-5'>
